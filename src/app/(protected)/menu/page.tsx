@@ -54,29 +54,7 @@ export default function MenuPage() {
         />
       </div>
 
-      {/* {tomorrowAppts.length > 0 && (
-         <div
-         className="rounded-xl p-4"
-         style={{
-           background: "linear-gradient(135deg, #ffe7ea, #FDF2D0)",
-           border: "1px solid var(--color-primary-light)",
-         }}
-       >
-         <p
-           className="font-semibold mb-2"
-           style={{ color: "var(--color-primary)" }}
-         >
-           תזכורת: יש לך {tomorrowAppts.length} תורים מחר
-         </p>
-          <div className="space-y-1">
-            {tomorrowAppts.map((appt) => (
-              <p key={appt.id} className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                {appt.time?.slice(0, 5)} - {appt.client_name} ({appt.treatment_type})
-              </p>
-            ))}
-          </div>
-        </div>
-      )} */}
+    
 
       <div className="grid grid-cols-2 gap-4">
         <button
@@ -118,6 +96,29 @@ export default function MenuPage() {
           <div className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>פרופיל</div>
         </button>
       </div>
+        {tomorrowAppts.length > 0 && (
+         <div
+         className="rounded-xl p-4"
+         style={{
+           background: "linear-gradient(135deg, #ffe7ea, #FDF2D0)",
+           border: "1px solid var(--color-primary-light)",
+         }}
+       >
+         <p
+           className="font-semibold mb-2"
+           style={{ color: "var(--color-primary)" }}
+         >
+           תזכורת: יש לך {tomorrowAppts.length} תורים מחר
+         </p>
+          <div className="space-y-1">
+            {tomorrowAppts.map((appt) => (
+              <p key={appt.id} className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+                {appt.time?.slice(0, 5)} - {appt.client_name} ({appt.treatment_type})
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
