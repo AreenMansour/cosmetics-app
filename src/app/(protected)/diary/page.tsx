@@ -261,7 +261,7 @@ export default function DiaryPage() {
 
   return (
     <div className="space-y-4">
-      {tomorrowAppts.length > 0 ? (
+      {/* {tomorrowAppts.length > 0 ? (
         <div
           className="rounded-xl p-4"
           style={{
@@ -290,7 +290,7 @@ export default function DiaryPage() {
         </div>
       ) : (
         <p className="text-sm text-center text-gray-400">אין תורים למחר</p>
-      )}
+      )} */}
 
       <div className="flex items-center justify-between">
         <button
