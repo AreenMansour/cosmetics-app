@@ -403,19 +403,19 @@ export default function DiaryPage() {
                       {appt.treatment_type}
                     </div>
                     
-                    <div className="md:opacity-0 md:group-hover:opacity-100 flex gap-1 mt-1 transition-opacity duration-200">
+                    <div className="flex gap-1 mt-1">
                       <button
                         onClick={() => {
                           setEditingAppt(appt);
                           setModalOpen(true);
                         }}
-                        className="cursor-pointer text-xs"
+                        className="text-xs"
                       >
                         ✏️
                       </button>
                       <button
                         onClick={() => handleDelete(appt.id)}
-                        className="cursor-pointer text-xs"
+                        className="text-xs"
                       >
                         🗑️
                       </button>
@@ -526,13 +526,13 @@ export default function DiaryPage() {
                             setEditingAppt(appt);
                             setModalOpen(true);
                           }}
-                          className="cursor-pointer text-xs p-1"
+                          className="text-xs p-1"
                         >
                           ✏️
                         </button>
                         <button
                           onClick={() => handleDelete(appt.id)}
-                          className="cursor-pointer text-xs p-1"
+                          className="text-xs p-1"
                         >
                           🗑️
                         </button>
