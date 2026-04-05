@@ -13,7 +13,7 @@ interface Client {
   payment_note: string
   payment_done: boolean
 }
-
+//ee
 export default function ClientsPage() {
   const router = useRouter()
   const supabase = useMemo(() => createClient(), [])
