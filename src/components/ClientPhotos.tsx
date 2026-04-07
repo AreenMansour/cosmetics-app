@@ -92,9 +92,9 @@ export default function ClientPhotos({ clientId }: Props) {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-base font-semibold" style={{ color: 'var(--color-text-secondary)' }}>
+      {/* <h3 className="text-base font-semibold" style={{ color: 'var(--color-text-secondary)' }}>
         תמונות לפני / אחרי
-      </h3>
+      </h3> */}
 
       {uploading && (
         <div className="text-center py-2 text-sm" style={{ color: 'var(--color-primary)' }}>

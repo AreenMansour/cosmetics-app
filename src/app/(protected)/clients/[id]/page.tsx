@@ -24,6 +24,14 @@ interface Treatment {
   product: string;
 }
 
+interface ClientPurchase {
+  id: string;
+  client_id: string;
+  date: string;
+  product: string;
+  price: string;
+}
+
 export default function ClientCardPage() {
   const params = useParams();
   const clientId = params.id as string;
@@ -37,7 +45,8 @@ export default function ClientCardPage() {
   const [editingClient, setEditingClient] = useState(false);
   const [editName, setEditName] = useState("");
   const [editPhone, setEditPhone] = useState("");
-
+  const [purchases, setPurchases] = useState<ClientPurchase[]>([]);
+  
   const [clientSectionOpen, setClientSectionOpen] = useState(true);
   const [purchasesSectionOpen, setPurchasesSectionOpen] = useState(true);
   const [treatmentsSectionOpen, setTreatmentsSectionOpen] = useState(true);
@@ -104,6 +113,26 @@ export default function ClientCardPage() {
     setEditingTreatment(null);
     await fetchData();
   };
+  
+  const fetchPurchases = useCallback(async () => {
+    const { data, error } = await supabase
+      .from("client_purchases")
+      .select("*")
+      .eq("client_id", clientId)
+      .order("purchase_date", { ascending: false })
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Fetch purchases error:", error);
+      return;
+    }
+
+    setPurchases(data || []);
+  }, [supabase, clientId]);
+
+  useEffect(() => {
+    fetchPurchases();
+  }, [fetchPurchases]);
 
   const handleDeleteTreatment = async (id: string) => {
     if (!confirm("למחוק טיפול זה?")) return;
@@ -283,7 +312,7 @@ export default function ClientCardPage() {
             className="text-base font-semibold"
             style={{ color: "var(--color-text-secondary)" }}
           >
-            היסטוריית רכישות
+            היסטוריית רכישות ({purchases.length})
           </h3>
 
           {renderToggleButton(
