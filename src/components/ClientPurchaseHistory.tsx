@@ -179,7 +179,10 @@ export default function ClientPurchaseHistory({ clientId }: Props) {
     setModalOpen(false);
     resetForm();
     await fetchPurchases();
+    //referesh the screen to update the new purchase in the list, because the realtime subscription might be a bit slow to reflect the changes
+    window.location.reload();
   };
+
   const handleEdit = async (id: string) => {
     const { data, error } = await supabase
       .from("client_purchases")
@@ -211,6 +214,7 @@ export default function ClientPurchaseHistory({ clientId }: Props) {
     }
 
     await fetchPurchases();
+    window.location.reload();
   };
 
   return (
