@@ -56,7 +56,7 @@ export default function MenuPage() {
 
     
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <button
           onClick={() => router.push('/clients')}
           className="rounded-2xl p-8 text-center cursor-pointer card-hover"
@@ -84,8 +84,21 @@ export default function MenuPage() {
         </button>
 
         <button
+          onClick={() => router.push('/notes')}
+          className="rounded-2xl p-8 text-center cursor-pointer card-hover"
+          style={{
+            background: 'white',
+            border: '1px solid var(--color-border)',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+          }}
+        >
+          <div className="text-4xl mb-3">📝</div>
+          <div className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>הערות</div>
+        </button>
+
+        <button
           onClick={() => router.push('/profile')}
-          className="rounded-2xl p-8 text-center cursor-pointer col-span-2 card-hover"
+          className="rounded-2xl p-8 text-center cursor-pointer col-span-2 md:col-span-3 card-hover"
           style={{
             background: 'white',
             border: '1px solid var(--color-border)',
